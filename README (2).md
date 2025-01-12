@@ -1,24 +1,25 @@
-# Sentiment-Analysis-ML-Flask-App
-A machine learning end to end flask web app for sentiment analysis model created using Scikit-learn &amp; VADER Sentiment. <br />
-The project uses libraries like : <br />
-Flask <br />
-Sklearn <br />
-Requests <br />
-NLTK <br />
-RE <br />
-vaderSentiment <br />
+# Feelometric  
+Feelometric is an advanced machine learning Flask web app designed for sentiment analysis using Scikit-learn and VADER Sentiment. It transforms raw text into actionable insights, making it an ideal tool for decoding emotions and understanding public sentiment.  
 
-### VADER SENTIMENT <br />
-VADER (Valence Aware Dictionary and sEntiment Reasoner) is a lexicon and rule-based sentiment analysis tool that is specifically attuned to sentiments expressed in social media, and works well on texts from other domains. <br />
-More about [VADER](https://pypi.org/project/vaderSentiment/)
-<br />
-<br />
-### LET'S TALK ABOUT SENTIMENT ANALYSIS <br />
-Sentiment analysis, an important area in Natural Language Processing, is the process of automatically detecting affective states of text. Sentiment analysis is widely applied to voice-of-customer materials such as product reviews in online shopping websites like Amazon, movie reviews or social media. It can be just a basic task of classifying the polarity of a text as being positive/negative or it can go beyond polarity, looking at sentiment states etc. <br />
-Sentiment analysis refers to analyzing an opinion or feelings about something using data like text or images, regarding almost anything. Sentiment analysis helps companies in their decision-making process. For instance, if public sentiment towards a product is not so good, a company may try to modify the product or stop the production altogether in order to avoid any losses. <br />
+The project utilizes libraries like:  
+- Flask  
+- Scikit-learn  
+- Requests  
+- NLTK  
+- RE  
+- vaderSentiment  
 
-There are many sources of public sentiment e.g. public interviews, opinion polls, surveys, etc. However, with more and more people joining social media platforms, websites like Facebook and Twitter can be parsed for public sentiment. <br />
-<br />
-The output looks like : <br />
-![](sentiment.gif)
+### VADER SENTIMENT  
+VADER (Valence Aware Dictionary and sEntiment Reasoner) is a powerful lexicon and rule-based sentiment analysis tool. Specifically tailored for sentiments expressed in social media, it performs excellently on texts from various domains.  
+Learn more about [VADER](https://pypi.org/project/vaderSentiment/)  
 
+### LET'S TALK ABOUT SENTIMENT ANALYSIS  
+Sentiment analysis, a critical branch of Natural Language Processing, automates the detection of emotional states within text. Widely used in analyzing product reviews, movie ratings, or social media posts, it enables companies to gauge customer opinions and adjust strategies accordingly.  
+
+Sentiment analysis goes beyond identifying text polarity (positive/negative) by exploring nuanced emotional states. For businesses, it’s a key tool for decision-making; understanding public sentiment about a product can lead to modifications, marketing shifts, or even halting production to prevent losses.  
+
+Public sentiment can be derived from numerous sources, including interviews, surveys, and now, more prominently, social media platforms like Twitter and Facebook. These vast repositories of data offer invaluable insights into public opinion.  
+
+### OUTPUT PREVIEW  
+The results of Feelometric's analysis are dynamic and interactive:  
+![](sentiment.gif)  
