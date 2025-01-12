@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .video-background {
+            position: fixed; /* Fix video in place */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2; /* Video goes behind content */
+        }
+
+        /* Overlay to add translucent black background */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            z-index: -1; /* Overlay goes above the video but behind circles */
+        }
+
+        /* Styles for the navbar */
+        nav {
+            background-color: rgba(0, 0, 0, 0.6);  /* semi-transparent black */
+            overflow: hidden;
+            position: fixed;  /* Make navbar fixed at the top */
+            top: 0;  /* Stay at the top */
+            left: 0;
+            width: 100%;  /* Full width */
+            z-index: 10;  /* Ensure it stays on top */
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Navbar link styles */
+        nav a {
+            color: white; /* Default text color */
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+        }
+
+        /* Hover effect */
+        nav a:hover {
+            background-color: white; /* Background color on hover */
+            color: black; /* Text color on hover */
+        }
+
+        /* Logo styling */
+        nav img {
+            height: 100px; /* Increased size of the logo */
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 170px;
+            padding-top: 100px;
+            font-size: 36px;
+            margin-bottom: 30px;
+            z-index: 1;
+            position: relative;
+            color: white;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 4px solid white; /* Cursor-like effect */
+            width: 0;
+            animation: typing 4s steps(40) forwards, blink-caret 0.75s step-end infinite;
+        }
+
+        /* Animation for typing effect */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Animation for the blinking cursor */
+        @keyframes blink-caret {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        .team-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 50px auto;
+            max-width: 1200px;
+        }
+
+        .team-member {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .circle {
+            width: 150px;
+            height: 150px;
+            background-color: #6c63ff; /* Replace with your preferred color */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: white;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1; /* Ensure the circles are above the overlay */
+        }
+
+        .circle img {
+            width: 145px; /* Size the image to fit inside the circle */
+            height: 145px; /* Make sure the image is square */
+            border-radius: 50%; /* Make image circular */
+            object-fit: cover; /* Ensures the image fits the circle */
+        }
+
+        .name-box {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+            max-width: 150px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Styling for the Contact Us section */
+        .contact-section {
+        margin-top: 30px;
+        color: white; /* Change text color to white */
+    }
+
+    .contact-icons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .contact-icons img {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .contact-icons img:hover {
+        transform: scale(1.1); /* Slight zoom effect on hover */
+    }
+
+        @media (max-width: 768px) {
+            .circle {
+                width: 120px;
+                height: 120px;
+                font-size: 16px;
+            }
+
+            .name-box {
+                font-size: 14px;
+                max-width: 120px;
+            }
+
+            .contact-icons img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+    <video class="video-background" autoplay loop muted>
+        <source src="{{ url_for('static', filename='videos/PurpleStar.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Translucent black overlay -->
+    <div class="overlay"></div>
+
+    <!-- Navbar -->
+    <nav>
+        <a href="/"><img src="{{ url_for('static', filename='pictures/FeeloMetric-removebgnew.png') }}" alt="Logo"></a>
+        <a href="/">Home</a>
+        <a href="/data">Data</a>
+        <a href="{{ url_for('visualize') }}">Visualize</a>
+        <a href="{{ url_for('about') }}">About</a>
+    </nav>
+    <title>About Page</title>
+</head>
+<body>
+    <h1>Unmasking the Code Commandos</h1>
+    <div class="team-section">
+        <div class="team-member">
+            <div class="circle">
+                <img src="{{ url_for('static', filename='pictures/Umar.jpg') }}" alt="Commando 1">
+            </div>
+            <div class="name-box">Mohammed R Umar Farooq</div>
+            <!-- Contact Us Section for Mohammed R Umar Farooq -->
+            <div class="contact-section">
+                <h3>Contact Me On</h3>
+                <div class="contact-icons">
+                    <a href="https://github.com/mr-umardev" target="_blank">
+                        <img src="{{ url_for('static', filename='pictures/github.jpeg') }}" alt="GitHub">
+                    </a>
+                    <a href="https://www.linkedin.com/in/mohammed-umar-farooq/" target="_blank">
+                        <img src="{{ url_for('static', filename='pictures/linkedin.jpeg') }}" alt="LinkedIn">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-member">
+            <div class="circle">
+                <img src="{{ url_for('static', filename='pictures/Hussain.jpg') }}" alt="Commando 2">
+            </div>
+            <div class="name-box">K Mohammed Hussain</div>
+            <!-- Contact Us Section for K Mohammed Hussain -->
+            <div class="contact-section">
+                <h3>Contact Me On</h3>
+                <div class="contact-icons">
+                    <a href="https://github.com/mdkh9980" target="_blank">
+                        <img src="{{ url_for('static', filename='pictures/github.jpeg') }}" alt="GitHub">
+                    </a>
+                    <a href="https://www.linkedin.com/in/k-mohammed-hussain/" target="_blank">
+                        <img src="{{ url_for('static', filename='pictures/linkedin.jpeg') }}" alt="LinkedIn">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-member">
+            <div class="circle">
+                <img src="{{ url_for('static', filename='pictures/Deepak.jpg') }}" alt="Commando 3">
+            </div>
+            <div class="name-box">Deepak K</div>
+            <!-- Contact Us Section for Deepak K -->
+            <div class="contact-section">
+                <h3>Contact Me On</h3>
+                <div class="contact-icons">
+                    <a href="https://github.com/DeepakK" target="_blank">
+                        <img src="{{ url_for('static', filename='pictures/github.jpeg') }}" alt="GitHub">
+                    </a>
+                    <a href="https://www.linkedin.com/in/deepak-k/" target="_blank">
+                        <img src="{{ url_for('static', filename='pictures/linkedin.jpeg') }}" alt="LinkedIn">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

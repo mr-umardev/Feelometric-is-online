@@ -1,0 +1,88 @@
+html, body {
+    height: 100%; /* Ensure the body takes full height */
+    margin: 0;
+    padding: 0;
+    overflow-y: auto; /* Enable vertical scrolling */
+    background: none; /* No background needed as the video is the background */
+    color: black; /* Change text color to white globally */
+}
+
+body {
+    font: 100% Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    position: relative;
+    font-weight: normal;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Ensures content stays at the top */
+    overflow-y: auto; /* Explicitly allow scrolling */
+}
+
+/* Ensure content can extend and scroll */
+.container {
+    text-align: center;
+    z-index: 1;
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px; /* Space to ensure form doesn't touch the edges */
+    margin-bottom: 100px; /* Allow extra space for scrolling */
+}
+
+h1 {
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 1.8em;
+    border-bottom: 2px solid rgb(76, 67, 65);
+    margin-bottom: 1.5em;
+    color: white; /* Ensure h1 color is white */
+}
+
+textarea {
+    width: 80%;
+    margin: 20px auto;
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+    color: white; /* Change text color to white */
+    background-color: rgba(255, 255, 255, 0.2); /* Make background slightly transparent */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Add subtle border */
+}
+
+.example_a {
+    border: none;
+    background: #404040;
+    color: #ffffff !important;
+    font-weight: 100;
+    padding: 20px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+    align-items: center;
+    margin-top: 2em;
+}
+
+table {
+    width: 50%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    color:black;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+td {
+    background-color: black;
+    color:white;
+}

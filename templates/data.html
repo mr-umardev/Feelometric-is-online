@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Query</title>
+    <style>
+        /* Styles for background video */
+        .video-background {
+            position: fixed; /* Fix video in place */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Video goes behind content */
+        }
+
+        /* Main content styles */
+        body {
+            font-family: Arial, sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        h1, h2 {
+            z-index: 1;
+            position: relative;
+            text-align: center;
+        }
+
+        form {
+            z-index: 1;
+            position: relative;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        table {
+            color:black;
+            z-index: 1;
+            position: relative;
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        td {
+            background-color: #f2f2f2;
+        }
+
+        /* Button styling */
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Go Back link as a button */
+        .go-back-btn {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .go-back-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background video -->
+    <video class="video-background" autoplay loop muted>
+        <source src="{{ url_for('static', filename='videos/redzoom.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <h1>Enter SQL Query</h1>
+    <form action="/data" method="post">
+        <label for="query">Enter Query:</label>
+        <input type="text" id="query" name="query" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if query_result %}
+        <h2>Query Results:</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Original Text</th>
+                    <th>Processed Text</th>
+                    <th>Sentiment Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in query_result %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    <!-- Centered Go Back Button -->
+    <a href="/" class="go-back-btn">Go Back</a>
+
+</body>
+</html>

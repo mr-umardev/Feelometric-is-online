@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Styles for background video */
+        .video-background {
+            position: fixed; /* Fix video in place */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Video goes behind content */
+        }
+
+        /* Overlay to add translucent black background */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            z-index: 0; /* Overlay goes above the video */
+        }
+
+        /* Styles for the navbar */
+        nav {
+            background-color: rgba(0, 0, 0, 0.6);  /* semi-transparent black */
+            overflow: hidden;
+            position: fixed;  /* Make navbar fixed at the top */
+            top: 0;  /* Stay at the top */
+            left: 0;
+            width: 100%;  /* Full width */
+            z-index: 10;  /* Ensure it stays on top */
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Navbar link styles */
+        nav a {
+            color: white; /* Default text color */
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+        }
+
+        /* Hover effect */
+        nav a:hover {
+            background-color: white; /* Background color on hover */
+            color: black; /* Text color on hover */
+        }
+
+        /* Logo styling */
+        nav img {
+            height: 100px; /* Increased size of the logo */
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+
+        /* Main content styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            height: 100%; /* Ensure the body takes full height */
+            overflow-y: auto; /* Enable vertical scrolling */
+            position: relative;
+            background: none; /* No background needed as the video is the background */
+        }
+
+        html {
+            height: 100%;
+        }
+
+        /* Typing effect styling */
+        h1 {
+            text-align: center;
+            padding-top: 100px;
+            font-size: 36px;
+            margin-bottom: 30px;
+            z-index: 1;
+            position: relative;
+            color: white;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 4px solid white; /* Cursor-like effect */
+            width: 0;
+            animation: typing 4s steps(40) forwards, blink-caret 0.75s step-end infinite;
+        }
+
+        /* Animation for typing effect */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Animation for the blinking cursor */
+        @keyframes blink-caret {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        textarea {
+            width: 80%;
+            margin: 20px auto;
+            display: block;
+            padding: 10px;
+            font-size: 16px;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .example_a {
+            display: block;
+            margin: 50px auto;
+            padding: 20px 40px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .example_a:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+            z-index: 1;
+            position: relative;
+            padding: 10px;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin-bottom: 100px;
+        }
+
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        td {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <title>Sentiment Analysis</title>
+</head>
+<body>
+    <!-- Background video -->
+    <video class="video-background" autoplay loop muted>
+        <source src="{{ url_for('static', filename='videos/PurpleStar.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Translucent black overlay -->
+    <div class="overlay"></div>
+
+    <!-- Navbar -->
+    <nav>
+        <a href="/"><img src="{{ url_for('static', filename='pictures/FeeloMetric-removebgnew.png') }}" alt="Logo"></a>
+        <a href="/">Home</a>
+        <a href="/data">Data</a>
+        <a href="{{ url_for('visualize') }}">Visualize</a>
+        <a href="{{ url_for('about') }}">About</a>
+    </nav>
+
+    <div class="container">
+        <h1>Welcome To Feelometric </h1>
+        
+        <form method="POST">
+            <textarea name="text1" placeholder="Say Something: ...." rows="10" cols="109"></textarea><br><br>
+            <input class="example_a" type="submit" value="Analyze">
+        </form>
+
+        {% if final %}
+        <div>
+            <h2 style="color:white">The Feelings of</h2><h2 style="color:yellow"> '{{ text1 }}'</h2> <h2 style="color:white">is <h2 style="color:yellow">{{ final * 100 }}%</h2><h2>positive!</h2></h2>
+            <h2 style="color:greenyellow">Feelometric Table</h2>
+            <table>
+                <tr>
+                    <th>SENTIMENT METRIC</th>
+                    <th>SCORE</th> 
+                </tr>
+                <tr>
+                    <td style="color:black">Positive</td>
+                    <td style="color:black">{{ text2 }}</td>
+                </tr>
+                <tr>
+                    <td style="color:black">Neutral</td>
+                    <td style="color:black">{{ text3 }}</td>
+                </tr>
+                <tr>
+                    <td style="color:black">Negative</td>
+                    <td style="color:black">{{ text5 }}</td>
+                </tr>
+                <tr>
+                    <td style="color:black">Compound</td>
+                    <td style="color:black">{{ text4 }}</td>
+                </tr>
+            </table>
+        {% else %}
+        <p></p>
+        {% endif %}
+    </div>
+</body>
+</html>

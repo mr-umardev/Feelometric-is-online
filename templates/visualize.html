@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualize Sentiment Scores</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Sentiment Analysis Chart</h1>
+    <canvas id="sentimentChart" width="800" height="400"></canvas>
+    <script>
+        // Get data passed from Flask
+        const sentimentScores = JSON.parse('{{ sentiment_scores | tojson }}');
+        const originalTexts = JSON.parse('{{ original_texts | tojson }}');
+
+        // Create the line chart
+        const ctx = document.getElementById('sentimentChart').getContext('2d');
+        const sentimentChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: originalTexts,
+                datasets: [{
+                    label: 'Sentiment Scores',
+                    data: sentimentScores,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderWidth: 2,
+                    tension: 0.4 // Smooth curves
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Original Texts',
+                            color: '#000',
+                        },
+                        ticks: {
+                            autoSkip: true,
+                            maxTicksLimit: 10,
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Sentiment Score',
+                            color: '#000',
+                        },
+                        min: 0,
+                        max: 1
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
