@@ -24,9 +24,10 @@ Public sentiment can be derived from numerous sources, including interviews, sur
 ### SCREENSHOT OF THE APPLICATION  
 Below is a screenshot of the **Feelometric** web application:  
 ![ScreenShot](./ScreenShot)
-![ScreenShot](./ScreenShot)
-![ScreenShot](./ScreenShot)
-![ScreenShot](./ScreenShot)
-![ScreenShot](./ScreenShot)
-![ScreenShot](./ScreenShot)
+![ScreenShot](./ScreenShot1)
+![ScreenShot](./ScreenShot2)
+![ScreenShot](./ScreenShot3)
+![ScreenShot](./ScreenShot4)
+![ScreenShot](./ScreenShot5)
+![ScreenShot](./ScreenShot6)
 
