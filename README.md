@@ -23,11 +23,18 @@ Public sentiment can be derived from numerous sources, including interviews, sur
 
 ### SCREENSHOT OF THE APPLICATION  
 Below is a screenshot of the **Feelometric** web application:  
+Welcome Page:
 ![ScreenShot](./ScreenShot)
+Input taken with Calculation in Compound Percentage:
 ![ScreenShot](./ScreenShot1)
+Tabular Calculation:
 ![ScreenShot](./ScreenShot2)
+DBMS Dynamic Query Handling:
 ![ScreenShot](./ScreenShot3)
+Predicted value updated in Database:
 ![ScreenShot](./ScreenShot4)
+Visualizing with Line Chart:
 ![ScreenShot](./ScreenShot5)
+The Dev Team:
 ![ScreenShot](./ScreenShot6)
 
