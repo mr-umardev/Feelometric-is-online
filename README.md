@@ -9,7 +9,7 @@ The project utilizes libraries like:
 - RE  
 - vaderSentiment
 
-### [Watch the demo video](./Feelometric-tutorial.mp4)
+### [Watch the demo video](./Feelometric-Tutorial.mp4)
 
 
 ### VADER SENTIMENT  
