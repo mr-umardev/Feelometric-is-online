@@ -7,7 +7,10 @@ The project utilizes libraries like:
 - Requests  
 - NLTK  
 - RE  
-- vaderSentiment  
+- vaderSentiment
+
+### [Watch the demo video](./Feelometric-tutorial.mp4)
+
 
 ### VADER SENTIMENT  
 VADER (Valence Aware Dictionary and sEntiment Reasoner) is a powerful lexicon and rule-based sentiment analysis tool. Specifically tailored for sentiments expressed in social media, it performs excellently on texts from various domains.  
