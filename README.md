@@ -53,77 +53,16 @@ Below is a screenshot of the **Feelometric** web application:
 ### The Dev Team:
 ![ScreenShot](./ScreenShot6)
 
-### Prerequisites
+## Prerequisites
 
-1.Python Installation: Ensure that Python is installed. If not, download and install Python from here.
+Before running this project, make sure you have the following installed:
 
-2.Visual Studio Code Installation: Ensure you have Visual Studio Code installed. If not, download it from here.
+1. **Python**: You can download and install Python from [here](https://www.python.org/downloads/).
+2. **Visual Studio Code**: You can download and install VS Code from [here](https://code.visualstudio.com/).
+3. **Required Python Packages**: The application depends on the following Python libraries:
+   - Flask
+   - vaderSentiment
+   - nltk
+   - sqlite3 (This comes pre-installed with Python)
 
-3.Required Python Packages: The provided code depends on several libraries. You'll need to install them using pip in the terminal. Here's the list:
-
-Flask
-vaderSentiment
-nltk
-sqlite3 (This is part of the standard Python library, so no installation is needed for this).
-
-### Steps to Set Up the Project in VS Code:
-
-Clone the Repository (or copy the code):
-
-If the code is on a GitHub repository, clone it by running:
-bash
-Copy code
-git clone <your-repository-url>
-If you're just starting with the code, create a new directory for your project and place the Python code in that directory.
-Open VS Code:
-
-Open Visual Studio Code and navigate to your project folder.
-Set Up a Virtual Environment (Optional but recommended):
-
-Open the integrated terminal in VS Code (Ctrl + ~).
-Navigate to your project directory if you haven't already.
-Create a virtual environment by running:
-bash
-Copy code
-python -m venv venv
-Activate the virtual environment:
-On Windows:
-bash
-Copy code
-.\venv\Scripts\activate
-On macOS/Linux:
-bash
-Copy code
-source venv/bin/activate
-Install Required Packages:
-
-Install the required Python packages by running the following commands in the terminal:
-bash
-Copy code
-pip install flask vaderSentiment nltk
-Download NLTK Data:
-
-The code uses NLTK's stopwords. Ensure that the NLTK data is downloaded by running the following command in Python:
-python
-Copy code
-import nltk
-nltk.download('stopwords')
-Run the Flask Application:
-
-In the VS Code terminal, make sure you're in the directory where your Python file is located (where your app.py is).
-Run the Flask application with the following command:
-bash
-Copy code
-python app.py
-You should see output indicating that the Flask server has started, such as:
-csharp
-Copy code
-* Running on http://127.0.0.1:5002/ (Press CTRL+C to quit)
-Open the Web Application:
-
-Open your web browser and navigate to http://127.0.0.1:5002/ to access the web application.
-Additional Information
-Templates: Ensure that you have the required HTML templates (like form.html, visualize.html, data.html, and about.html) in a folder named templates inside the same directory as your Python code.
-Database: The code uses SQLite, and it will automatically create a database file named text_analysis.db in the project directory when it runs.
-Now, your Flask application should be set up and running!
-
+  
