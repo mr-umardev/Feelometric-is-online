@@ -22,4 +22,4 @@ Public sentiment can be derived from numerous sources, including interviews, sur
 
 ### OUTPUT PREVIEW  
 The results of Feelometric's analysis are dynamic and interactive:  
-![](sentiment.gif)  
+![](sentiment.gif  
